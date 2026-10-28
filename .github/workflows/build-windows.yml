@@ -22,9 +22,11 @@ jobs:
           npm install
 
       - name: Build Windows App (Electron)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           npm install electron electron-builder --save-dev
-          npx electron-builder --win --x64 -c.publish=never
+          npx electron-builder --win --x64 --publish never
 
       - name: Upload Windows EXE Artifact
         uses: actions/upload-artifact@v4
