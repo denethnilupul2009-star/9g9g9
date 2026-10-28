@@ -24,7 +24,7 @@ jobs:
       - name: Build Windows App (Electron)
         run: |
           npm install electron electron-builder --save-dev
-          npx electron-builder --win --x64
+          npx electron-builder --win --x64 -c.publish=never
 
       - name: Upload Windows EXE Artifact
         uses: actions/upload-artifact@v4
